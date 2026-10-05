@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  // Typecheck covers the tests; the BUILD must not emit them into dist.
+  "exclude": ["**/*.test.ts", "**/*.test.tsx"]
+}
