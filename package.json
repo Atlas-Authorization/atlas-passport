@@ -1,12 +1,12 @@
 {
   "name": "@atlasauth/passport",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Passport.js strategies for Atlas — an OIDC authorization-code strategy for interactive login and a bearer/JWT strategy for API routes, both wrapping @atlasauth/backend.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
     "build": "tsc -p tsconfig.build.json",
-    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "typecheck": "tsgo -p tsconfig.json --noEmit --module preserve --moduleResolution bundler --incremental --tsBuildInfoFile node_modules/.cache/typecheck.tsbuildinfo",
     "test": "vitest run"
   },
   "dependencies": {
@@ -43,7 +43,9 @@
   },
   "files": [
     "dist",
-    "README.md"
+    "!dist/*.tsbuildinfo",
+    "README.md",
+    "CHANGELOG.md"
   ],
   "repository": {
     "type": "git",

@@ -304,7 +304,7 @@ export class AtlasStrategy extends PassportStrategy {
   }
 
   /**
-   * Verify the returned id_token: signature (RS256) against the instance JWKS,
+   * Verify the returned id_token: signature (RS256 or ES256) against the instance JWKS,
    * plus `iss` and `aud` (this client). Reuses the backend JWKS cache + `jose` —
    * the same verification the rest of the SDK does, not a second implementation.
    * Returns the claims, or null on any failure.
@@ -315,7 +315,8 @@ export class AtlasStrategy extends PassportStrategy {
     if (!keys || keys.keys.length === 0) return null;
     try {
       const { payload } = await jwtVerify(idToken, createLocalJWKSet(keys as never), {
-        algorithms: ['RS256'],
+        // Atlas signs with RS256 (default) or ES256, chosen per instance.
+        algorithms: ['RS256', 'ES256'],
         issuer: this.issuer,
         audience: this.clientID,
         clockTolerance: CLOCK_SKEW_SECONDS,

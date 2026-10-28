@@ -1,5 +1,11 @@
 {
   "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // Incremental: an unchanged package rebuilds in seconds. The build info
+    // lives in dist, so deleting dist always forces a full rebuild.
+    "incremental": true,
+    "tsBuildInfoFile": "./dist/tsconfig.build.tsbuildinfo"
+  },
   // Typecheck covers the tests; the BUILD must not emit them into dist.
   "exclude": ["**/*.test.ts", "**/*.test.tsx"]
 }
