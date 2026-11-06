@@ -85,6 +85,20 @@ describe('AtlasJwtStrategy', () => {
     expect((outcome as { status?: number }).status).toBe(401);
   });
 
+  it('accepts a previous issuer only when previousIssuers lists it', async () => {
+    const old = 'https://old.atlas.test';
+    const token = await fx.mintSession({ iss: old });
+
+    const strict = await run(new AtlasJwtStrategy({ issuer: fx.issuer, jwks: fx.jwks }), bearer(token));
+    expect(strict.type).toBe('fail');
+
+    const overlap = await run(
+      new AtlasJwtStrategy({ issuer: fx.issuer, previousIssuers: [old], jwks: fx.jwks }),
+      bearer(token),
+    );
+    expect(overlap.type).toBe('success');
+  });
+
   it('fails with 401 when no token is present', async () => {
     const strategy = new AtlasJwtStrategy({ issuer: fx.issuer, jwks: fx.jwks });
 

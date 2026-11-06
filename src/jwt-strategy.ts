@@ -24,6 +24,8 @@ export interface AtlasJwtStrategyOptions {
   domain?: string;
   /** Expected `iss`. Defaults to the normalized `domain`. Required if `domain` is absent. */
   issuer?: string;
+  /** Former issuers still accepted during a sign-in host change. Absent means only `issuer`. */
+  previousIssuers?: string[];
   /** The instance publishable key (`pk_…`). Informational; not required to verify. */
   publishableKey?: string;
   /** JWKS URL. Defaults to `{domain}/.well-known/jwks.json`. Mutually exclusive with `jwks`. */
@@ -148,6 +150,7 @@ function buildBackendOptions(options: AtlasJwtStrategyOptions): AtlasBackendOpti
     return {
       jwks: options.jwks,
       issuer,
+      previousIssuers: options.previousIssuers,
       authorizedParties: options.authorizedParties,
       audience: options.audience,
       now: options.now,
@@ -162,6 +165,7 @@ function buildBackendOptions(options: AtlasJwtStrategyOptions): AtlasBackendOpti
   return {
     jwksUrl,
     issuer,
+    previousIssuers: options.previousIssuers,
     authorizedParties: options.authorizedParties,
     audience: options.audience,
     now: options.now,

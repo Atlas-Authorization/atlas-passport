@@ -1,5 +1,10 @@
 # @atlasauth/passport changelog
 
+## 0.1.2 — 2026-11-06
+
+### Added
+- `AtlasJwtStrategy` / `BearerStrategy` accept `previousIssuers`, so a sign-in host change does not sign users out: tokens from a listed former issuer are accepted. Absent means only `issuer` is accepted.
+
 ## 0.1.1 — 2026-10-23
 
 ### Changed

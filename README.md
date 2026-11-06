@@ -131,6 +131,7 @@ the instance JWKS (`iss` + `aud`), and hands the profile to your verify callback
 | `domain` | `string?` | derives `issuer` + `{domain}/.well-known/jwks.json`. |
 | `issuer` | `string?` | expected `iss` (required if no `domain`). |
 | `jwksUrl` / `jwks` | `string?` / `Jwks?` | key source; `jwks` is a static set for offline verify. |
+| `previousIssuers` | `string[]?` | former issuers still accepted during a sign-in host change. |
 | `authorizedParties` | `readonly string[]?` | §7.3 azp allowlist. |
 | `audience` | `string \| readonly string[]?` | §S4 expected audience (opt-in). |
 | `backend` | `AtlasBackend?` | reuse a pre-built verifier (shared JWKS cache). |
