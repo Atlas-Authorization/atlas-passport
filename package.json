@@ -17,7 +17,7 @@
   "devDependencies": {
     "@types/passport-strategy": "^0.2.38",
     "typescript": "^5.6.3",
-    "vitest": "^2.1.4"
+    "vitest": "^3.2.7"
   },
   "peerDependencies": {
     "passport": "^0.6.0 || ^0.7.0"
