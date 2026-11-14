@@ -1,6 +1,6 @@
 {
   "name": "@atlasauth/passport",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "description": "Passport.js strategies for Atlas — an OIDC authorization-code strategy for interactive login and a bearer/JWT strategy for API routes, both wrapping @atlasauth/backend.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -21,7 +21,7 @@
   },
   "peerDependencies": {
     "passport": "^0.6.0 || ^0.7.0",
-    "@atlasauth/backend": ">=0.49.0 <1.0.0"
+    "@atlasauth/backend": ">=0.51.0 <1.0.0"
   },
   "peerDependenciesMeta": {
     "passport": {
