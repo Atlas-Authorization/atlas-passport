@@ -1,5 +1,9 @@
 # @atlasauth/passport changelog
 
+## 0.3.0
+
+- Plan feature gate wrapper.
+
 ## 0.2.0
 
 - New `atlasRateLimit` and `atlasGrantUsage` helpers: enforce Atlas rate-limit policies and metered grant usage (consume/refund with idempotency) in your routes. Requires `@atlasauth/backend` 0.51.0 or later.
