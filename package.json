@@ -1,7 +1,7 @@
 {
   "name": "@atlasauth/passport",
   "version": "0.3.1",
-  "description": "Passport.js strategies for Atlas — an OIDC authorization-code strategy for interactive login and a bearer/JWT strategy for API routes, both wrapping @atlasauth/backend.",
+  "description": "Passport.js strategies for Atlas \u2014 an OIDC authorization-code strategy for interactive login and a bearer/JWT strategy for API routes, both wrapping @atlasauth/backend.",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -14,10 +14,11 @@
     "passport-strategy": "^1.0.0"
   },
   "devDependencies": {
+    "@atlasauth/backend": "workspace:*",
     "@types/passport-strategy": "^0.2.38",
+    "passport": "0.7.0",
     "typescript": "^5.6.3",
-    "vitest": "^4.1.12",
-    "@atlasauth/backend": "workspace:*"
+    "vitest": "^4.1.12"
   },
   "peerDependencies": {
     "passport": "^0.6.0 || ^0.7.0",
