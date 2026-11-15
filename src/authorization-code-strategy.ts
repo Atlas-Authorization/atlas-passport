@@ -315,8 +315,8 @@ export class AtlasStrategy extends PassportStrategy {
     if (!keys || keys.keys.length === 0) return null;
     try {
       const { payload } = await jwtVerify(idToken, createLocalJWKSet(keys as never), {
-        // Atlas signs with RS256 (default) or ES256, chosen per instance.
-        algorithms: ['RS256', 'ES256'],
+        // Atlas signs with RS256 (default), ES256, ES384, PS256 or EdDSA, chosen per instance.
+        algorithms: ['RS256', 'ES256', 'ES384', 'PS256', 'EdDSA'],
         issuer: this.issuer,
         audience: this.clientID,
         clockTolerance: CLOCK_SKEW_SECONDS,

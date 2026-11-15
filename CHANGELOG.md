@@ -1,5 +1,9 @@
 # @atlasauth/passport changelog
 
+## 0.3.1
+
+- Access and ID tokens signed with ES384, PS256 and EdDSA now verify, matching the new instance signing algorithms.
+
 ## 0.3.0
 
 - Plan feature gate wrapper.
